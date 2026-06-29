@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-// Clase ArrayList generica.
+// Clase ArrayList generica.   //Recuerden implementar todos los métodos en ArrayList.
 // E representa el tipo de dato que guardara la lista.
 // Implementa la interfaz Lista<E>.
 public class ArrayList<E> implements Lista<E> {
