@@ -1,3 +1,4 @@
+import java.awt.image.BufferStrategy;
 import java.util.Iterator;
 
 
@@ -5,7 +6,7 @@ public class ArrayList<E> implements Lista<E> {
 
     private static final int  MAX=5;
 	private int indice=0;
-	private Object[] datos=null; 
+	private Object[] datos=null;  
 
 
 
@@ -178,6 +179,22 @@ public class ArrayList<E> implements Lista<E> {
 			throw new IndexOutOfBoundsException();
 		}
 	}
+
+	@Override
+	public int busquedaLineal(E e){
+		
+		if(esVacia()){
+			throw new NullPointerException();
+		}else{
+			for(int i=0; i<this.indice; i++){
+				if(datos[i].equals(e)){
+					return i;
+				}
+			}
+			return -1;
+		}
+	}
+
 
     @Override
     public Iterator<E> iterator() {

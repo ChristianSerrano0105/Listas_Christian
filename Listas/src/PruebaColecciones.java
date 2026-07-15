@@ -41,20 +41,19 @@ public class PruebaColecciones {
 // Este principio se conoce como "programar contra la interfaz y
 // no contra la implementación", ya que la interfaz controla qué
 // operaciones están disponibles para el usuario.
-         */
-        Pila<Integer> pilaArray =
-                new PilaLista<>(new ArrayList<Integer>());
 
-        pilaArray.apilar(10);
-        pilaArray.apilar(20);
-        pilaArray.apilar(30);
+        Pila<Integer> pilaA = new PilaArray<>();
+
+        pilaA.apilar(10);
+        pilaA.apilar(20);
+        pilaA.apilar(30);
 
         System.out.println("Elemento en la cima: "
-                + pilaArray.consultarCima());
+                + pilaA.consultarCima());
 
-        while (!pilaArray.esVacia()) {
+        while (!pilaA.esVacia()) {
             System.out.println("Desapilando: "
-                    + pilaArray.desapilar());
+                    + pilaA.desapilar());
         }
 
         /*

@@ -69,4 +69,17 @@ public interface Lista<E> extends Iterable<E> {
 	 */
 	public E consultar(int posicion);
 	
+	public int busquedaLineal(E e);
+
+
+	public int busquedaLinealRecursiva(E e);
+
+
+	public int busquedaBinaria(E e);
+
+
+	public void ordenaInsercion();
+
+
+	public void ordenaMerge();
 }
