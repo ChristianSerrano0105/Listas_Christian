@@ -62,7 +62,7 @@ public class PruebaColecciones {
         // PILA IMPLEMENTADA CON LINKEDLIST
         //==========================================================
 
-//        System.out.println("\n===== PILA CON LINKEDLIST =====");
+        System.out.println("\n===== PILA CON LINKEDLIST =====");
 
         /*
          * Observe que únicamente cambiamos la implementación interna.
@@ -72,8 +72,8 @@ public class PruebaColecciones {
          * Esto demuestra que programamos utilizando la interfaz Pila
          * y no una implementación específica.
          */
-  /*     Pila<Integer> pilaL =
-                new PilaLinked<>(new LinkedList<Integer>());
+        Pila<Integer> pilaL = new PilaLinked<>();
+                
 
         pilaL.apilar(100);
         pilaL.apilar(200);
@@ -100,8 +100,7 @@ public class PruebaColecciones {
          * Aunque internamente utilice una Lista, únicamente estarán
          * disponibles las operaciones propias de una cola.
          */
-     /*   Cola<String> colaA =
-                new ColaArray<>(new ArrayList<String>());
+        Cola<String> colaA = new ColaArray<>();
 
         colaA.encolar("Ana");
         colaA.encolar("Luis");
@@ -112,7 +111,7 @@ public class PruebaColecciones {
 
         while (!colaA.esVacia()) {
             System.out.println("Desencolando: "
-                    + colaArray.desencolar());
+                    + colaA.desencolar());
         }
 
         /*
@@ -129,14 +128,13 @@ public class PruebaColecciones {
         // COLA IMPLEMENTADA CON LINKEDLIST
         //==========================================================
 
-       /*  System.out.println("\n===== COLA CON LINKEDLIST =====");
+         System.out.println("\n===== COLA CON LINKEDLIST =====");
 
         /*
          * Nuevamente únicamente cambiamos la implementación interna.
          * Todo el código que utiliza la cola permanece igual.
          */
-        /*Cola<String> colaL =
-                new ColaLinked<>(new LinkedList<String>());
+        Cola<String> colaL = new ColaLinked<>();
 
         colaL.encolar("María");
         colaL.encolar("José");
