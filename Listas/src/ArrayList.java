@@ -1,4 +1,4 @@
-import java.awt.image.BufferStrategy;
+
 import java.util.Iterator;
 
 
@@ -193,6 +193,82 @@ public class ArrayList<E> implements Lista<E> {
 			}
 			return -1;
 		}
+	}
+
+	@Override
+	public int busquedaLinealRecursiva(E e) {
+		return busquedaRecursivaHelper(e, 0);
+	}
+
+	private int busquedaRecursivaHelper(E e, int index) {
+		if (index >= indice) return -1;
+		if (datos[index].equals(e)) return index;
+		return busquedaRecursivaHelper(e, index + 1);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public int busquedaBinaria(E e) {
+		
+		Comparable<E> comp = (Comparable<E>) e;
+		int inicio = 0;
+		int fin = indice - 1;
+
+		while (inicio <= fin) {
+			int medio = inicio + (fin - inicio) / 2;
+			int cmp = comp.compareTo((E) datos[medio]);
+
+			if (cmp == 0) return medio;
+			if (cmp > 0) inicio = medio + 1;
+			else fin = medio - 1;
+		}
+		return -1;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void ordenaInsercion() {
+		for (int i = 1; i < indice; i++) {
+			E clave = (E) datos[i];
+			int j = i - 1;
+			Comparable<E> comp = (Comparable<E>) clave;
+
+			while (j >= 0 && comp.compareTo((E) datos[j]) < 0) {
+				datos[j + 1] = datos[j];
+				j--;
+			}
+			datos[j + 1] = clave;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void ordenaMerge() {
+		if (indice <= 1) return;
+		Object[] temp = new Object[indice];
+		mergeSortHelper(0, indice - 1, temp);
+	}
+
+	@SuppressWarnings("unchecked")
+	private void mergeSortHelper(int inicio, int fin, Object[] temp) {
+		if (inicio >= fin) return;
+		int medio = inicio + (fin - inicio) / 2;
+		mergeSortHelper(inicio, medio, temp);
+		mergeSortHelper(medio + 1, fin, temp);
+
+		
+		int i = inicio, j = medio + 1, k = inicio;
+		while (i <= medio && j <= fin) {
+			Comparable<E> comp = (Comparable<E>) datos[i];
+			if (comp.compareTo((E) datos[j]) <= 0) {
+				temp[k++] = datos[i++];
+			} else {
+				temp[k++] = datos[j++];
+			}
+		}
+		while (i <= medio) temp[k++] = datos[i++];
+		while (j <= fin) temp[k++] = datos[j++];
+		for (i = inicio; i <= fin; i++) datos[i] = temp[i];
 	}
 
 
